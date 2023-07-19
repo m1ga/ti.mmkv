@@ -57,6 +57,11 @@ public class TiMmkvModule extends KrollModule {
     }
 
     @Kroll.method
+    public void setDouble(String name, Object value) {
+        kv.encode(name, TiConvert.toDouble(value));
+    }
+
+    @Kroll.method
     public boolean getBool(String name, Object value) {
         return kv.decodeBool(name, TiConvert.toBoolean(value, false));
     }
@@ -69,6 +74,10 @@ public class TiMmkvModule extends KrollModule {
     @Kroll.method
     public int getInt(String name, Object value) {
         return kv.decodeInt(name, TiConvert.toInt(value, 0));
+    }
+    @Kroll.method
+    public double getDouble(String name, Object value) {
+        return kv.decodeDouble(name, TiConvert.toInt(value, 0));
     }
 }
 
